@@ -8,13 +8,22 @@ function App() {
     axios.get(`https://api.nasa.gov/planetary/apod?api_key=c4YnxWOAfOecvJbiWkwyaaHCFu3OPcCvkIjKmeYs`)
     .then(res => {
       console.log(res.data);
-      setNasaData(res.data.hdurl)
+      setNasaData(res.data);
         })
-      })
+      }, [])
   return (
     <div className="App">
-      <p>Nasa's Photo of the Day!</p>
-      <img src={nasaData} alt="Space"></img>
+      <h1>Nasa's Photo of the Day!</h1>
+      <img src={nasaData.hdurl} alt={nasaData.explanation}></img>
+      <div className="photoLore">
+        <h2>{nasaData.title}</h2>
+        <p>{nasaData.explanation}</p>
+      </div>
+      <div className="photoInfo">
+        <h4>Additional Information</h4>
+        <p>Copyright - {nasaData.copyright}</p>
+        <p>Date Taken - {nasaData.date}</p>
+      </div>
     </div>
   );
 }

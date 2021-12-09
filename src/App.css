@@ -23,6 +23,14 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+.photoInfo {
+  display: flex;
+  line-height: .5;
+  flex-wrap: wrap;
+  width: 25%;
+  text-align: left;
+  margin-left: 10%;
+}
 
 .App-link {
   color: #61dafb;
